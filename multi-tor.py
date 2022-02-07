@@ -5,6 +5,10 @@ import argparse
 import glob
 import shutil
 import json
+from stem import Signal
+from stem.control import Controller
+
+PORT_OFFSET = 100
 
 def create_tor_env(port):
     path = str(os.getcwd())
@@ -20,8 +24,10 @@ def create_tor_env(port):
     filename = "torrc/torrc." + str(port)
     f = open(filename, "w+")
     f.write("SocksPort " + str(port) + "\n\r")
-    f.write("ControlPort " + str(port + 100) + "\n\r")
-    f.write("DataDirectory ./datadir/datadir" + str(port))
+    f.write("ControlPort " + str(port + PORT_OFFSET) + "\n\r")
+    f.write("DataDirectory ./datadir/datadir" + str(port) + "\n\r")
+    f.write("HashedControlPassword 16:DF014777120B2073605D1E97A89CB003322CCD098A6A42876BA3A919D3")
+
     f.close()
 
 def launch_tor(port):
@@ -74,6 +80,11 @@ def clean_tor_relays():
         print("Error while deleting file : ", filePath)
 
 
+def change_tor_circuit(port):
+    with Controller.from_port(address = '127.0.0.1', port=port+PORT_OFFSET) as controller:
+        controller.authenticate(password='password')
+        controller.signal(Signal.NEWNYM)
+
 
 DEFAULT_PORT = 9050
 TOR_PATH = '"Tor/tor.exe"'
@@ -111,6 +122,15 @@ else:
     # Check and validate IPs and location for all tor circuits
     for port in range(args.ports,args.ports+args.ninst):    
         validate_tor_relay(port)
+        
+    # Check and validate IPs and location for all tor circuits
+    for port in range(args.ports,args.ports+args.ninst):    
+        change_tor_circuit(port)
+        
+    # Check and validate IPs and location for all tor circuits
+    for port in range(args.ports,args.ports+args.ninst):    
+        validate_tor_relay(port)    
+        
 
 if args.port_list:
     # Create tor relay list

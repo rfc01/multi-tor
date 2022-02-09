@@ -9,6 +9,8 @@ from stem import Signal
 from stem.control import Controller
 
 PORT_OFFSET = 100
+DEFAULT_PORT = 9050
+TOR_PATH = '"Tor/tor.exe"'
 
 def create_tor_env(port):
     path = str(os.getcwd())
@@ -34,6 +36,7 @@ def launch_tor(port):
     path = str(os.getcwd())
     cmd = TOR_PATH + ' -f ' + path + '/torrc/torrc.' + str(port) + ' | more'
     sp = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+    return sp
 
 def validate_tor_relay(port):
     proxies = {
@@ -47,6 +50,7 @@ def validate_tor_relay(port):
             break
         except:
             pass
+    return exit_ip
 
 def clean_tor_relays():
 
@@ -86,8 +90,7 @@ def change_tor_circuit(port):
         controller.signal(Signal.NEWNYM)
 
 
-DEFAULT_PORT = 9050
-TOR_PATH = '"Tor/tor.exe"'
+
 
 # Defines and Global Variables
 parser = argparse.ArgumentParser(description='Tor Relay Launcher')

@@ -76,7 +76,7 @@ def clean_tor_relays():
         print("Error while deleting file : ", filePath)
         
     # Remove tor relay list
-    filePath = 'torrelay.list'
+    filePath = 'torcircuit.list'
     try:
         print("Removing " + filePath)
         os.remove(filePath)
@@ -89,7 +89,30 @@ def change_tor_circuit(port):
         controller.authenticate(password='password')
         controller.signal(Signal.NEWNYM)
 
-
+def create_multi_tor_env(ports,ninst):
+    print("Create DataDirectory and torrc files... ", end = '', flush=True)    
+    for port in range(ports,ports+ninst):
+        create_tor_env(port)
+    print("Done")
+    
+    # launch all tor relay circuits
+    print("Launching Tor nodes, this make take a few seconds. ")
+    for port in range(ports,ports+ninst):    
+        launch_tor(port)
+        
+    # Check and validate IPs and location for all tor circuits
+    for port in range(ports,ports+ninst):    
+        validate_tor_relay(port)
+ 
+  
+def create_circuit_list(ports,ninst):
+    # Create tor relay list
+    filename = "torcircuit.list"
+    f = open(filename, "w+")
+    for port in range(args.ports,args.ports+args.ninst):
+        f.write(str(port)+'\n')
+    f.close()
+    print("Access port list created:", filename)
 
 
 # Defines and Global Variables
@@ -98,8 +121,9 @@ parser.add_argument('-c', '--clean', help='clean tor workspace', dest='clean', a
 parser.add_argument('-n', '--ninst', type=int, help='number of Tor instances', required=False)
 parser.add_argument('-p', '--ports', type=int, help='initial port', required=False)
 parser.add_argument('-l', '--port_list', help='create ip:port access list', dest='port_list', action='store_true', required=False)
+parser.add_argument('-m', '--modify', help='modify IPs in current environment', dest='modify', action='store_true', required=False)
 
-parser.set_defaults(clean=False, ninst=0, ports=DEFAULT_PORT, port_list=False)
+parser.set_defaults(clean=False, ninst=0, ports=DEFAULT_PORT, port_list=False, modify=False)
 
 # Parse command-line arguments
 args = parser.parse_args()
@@ -108,38 +132,26 @@ args = parser.parse_args()
 if args.clean:
     clean_tor_relays()
     
-if args.ninst <= 0:
-    exit(1)
-else:
-
-    print("Create DataDirectory and torrc files... ", end = '', flush=True)    
-    for port in range(args.ports,args.ports+args.ninst):
-        create_tor_env(port)
-    print("Done")
+if args.ninst > 0:
+    create_multi_tor_env(args.ports,args.ninst)   
+    if args.port_list:
+        create_circuit_list(args.ports,args.ninst)
     
-    # launch all tor relay circuits
-    print("Launching Tor nodes, this make take a few seconds. ")
-    for port in range(args.ports,args.ports+args.ninst):    
-        launch_tor(port)
-        
+if args.modify: 
+    # Create tor relay list
+    filename = "torcircuit.list"
+    f = open(filename, "r")
+    lines = f.readlines()
+ 
+    # Strips the newline character
+    ports = []
+    for l in lines:
+        ports.append(int(l))
+    
     # Check and validate IPs and location for all tor circuits
-    for port in range(args.ports,args.ports+args.ninst):    
-        validate_tor_relay(port)
-        
-    # Check and validate IPs and location for all tor circuits
-    for port in range(args.ports,args.ports+args.ninst):    
+    for port in ports:    
         change_tor_circuit(port)
         
     # Check and validate IPs and location for all tor circuits
-    for port in range(args.ports,args.ports+args.ninst):    
-        validate_tor_relay(port)    
-        
-
-if args.port_list:
-    # Create tor relay list
-    filename = "torrelay.list"
-    f = open(filename, "w")
-    for port in range(args.ports,args.ports+args.ninst):
-        f.write(str(port)+'\n')
-    f.close()
-    print("Access port list created:", filename)
+    for port in ports:    
+        validate_tor_relay(port)   

@@ -2,4 +2,4 @@
 Tor/*
 datadir*
 torrc*
-torrelay.list
+torcircuit.list

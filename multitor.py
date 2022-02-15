@@ -46,7 +46,7 @@ def validate_tor_relay(port):
     while True:
         try:
             exit_ip = requests.get('https://ipinfo.io/', proxies=proxies).json()
-            print('Launched Tor on 127.0.0.1:'+str(port),'|', 'exit node:',exit_ip['ip'],'\t',exit_ip['region'],'-',exit_ip['country'])
+            print('Launched Tor on 127.0.0.1:'+str(port),'<->', 'exit node:',exit_ip['ip'],'\t',exit_ip['country'],'-',exit_ip['region'])
             break
         except:
             pass
@@ -96,14 +96,16 @@ def create_multi_tor_env(ports,ninst):
     print("Done")
     
     # launch all tor relay circuits
-    print("Launching Tor nodes, this make take a few seconds. ")
+    print("Launching Tor nodes, this may take a few seconds. ")
     for port in range(ports,ports+ninst):    
         launch_tor(port)
         
     # Check and validate IPs and location for all tor circuits
+    ret = []
     for port in range(ports,ports+ninst):    
-        validate_tor_relay(port)
- 
+        ret.append([port,validate_tor_relay(port)['ip']])
+    
+    return ret
   
 def create_circuit_list(ports,ninst):
     # Create tor relay list

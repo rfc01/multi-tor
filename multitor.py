@@ -116,44 +116,45 @@ def create_circuit_list(ports,ninst):
     f.close()
     print("Access port list created:", filename)
 
+if __name__ == '__main__':
 
-# Defines and Global Variables
-parser = argparse.ArgumentParser(description='Tor Relay Launcher')
-parser.add_argument('-c', '--clean', help='clean tor workspace', dest='clean', action='store_true', required=False)
-parser.add_argument('-n', '--ninst', type=int, help='number of Tor instances', required=False)
-parser.add_argument('-p', '--ports', type=int, help='initial port', required=False)
-parser.add_argument('-l', '--port_list', help='create ip:port access list', dest='port_list', action='store_true', required=False)
-parser.add_argument('-m', '--modify', help='modify IPs in current environment', dest='modify', action='store_true', required=False)
+    # Defines and Global Variables
+    parser = argparse.ArgumentParser(description='Tor Relay Launcher')
+    parser.add_argument('-c', '--clean', help='clean tor workspace', dest='clean', action='store_true', required=False)
+    parser.add_argument('-n', '--ninst', type=int, help='number of Tor instances', required=False)
+    parser.add_argument('-p', '--ports', type=int, help='initial port', required=False)
+    parser.add_argument('-l', '--port_list', help='create ip:port access list', dest='port_list', action='store_true', required=False)
+    parser.add_argument('-m', '--modify', help='modify IPs in current environment', dest='modify', action='store_true', required=False)
 
-parser.set_defaults(clean=False, ninst=0, ports=DEFAULT_PORT, port_list=False, modify=False)
+    parser.set_defaults(clean=False, ninst=0, ports=DEFAULT_PORT, port_list=False, modify=False)
 
-# Parse command-line arguments
-args = parser.parse_args()
+    # Parse command-line arguments
+    args = parser.parse_args()
 
-# Remove old workspace
-if args.clean:
-    clean_tor_relays()
-    
-if args.ninst > 0:
-    create_multi_tor_env(args.ports,args.ninst)   
-    if args.port_list:
-        create_circuit_list(args.ports,args.ninst)
-    
-if args.modify: 
-    # Create tor relay list
-    filename = "torcircuit.list"
-    f = open(filename, "r")
-    lines = f.readlines()
- 
-    # Strips the newline character
-    ports = []
-    for l in lines:
-        ports.append(int(l))
-    
-    # Check and validate IPs and location for all tor circuits
-    for port in ports:    
-        change_tor_circuit(port)
+    # Remove old workspace
+    if args.clean:
+        clean_tor_relays()
         
-    # Check and validate IPs and location for all tor circuits
-    for port in ports:    
-        validate_tor_relay(port)   
+    if args.ninst > 0:
+        create_multi_tor_env(args.ports,args.ninst)   
+        if args.port_list:
+            create_circuit_list(args.ports,args.ninst)
+        
+    if args.modify: 
+        # Create tor relay list
+        filename = "torcircuit.list"
+        f = open(filename, "r")
+        lines = f.readlines()
+     
+        # Strips the newline character
+        ports = []
+        for l in lines:
+            ports.append(int(l))
+        
+        # Check and validate IPs and location for all tor circuits
+        for port in ports:    
+            change_tor_circuit(port)
+            
+        # Check and validate IPs and location for all tor circuits
+        for port in ports:    
+            validate_tor_relay(port)   

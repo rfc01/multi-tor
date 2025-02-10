@@ -1,6 +1,0 @@
-
-SocksPort 9068
-ControlPort 9069
-DataDirectory ./tor_data/node_9
-HashedControlPassword 16:88325B5F6C78456960E41CF9B5AB76D631ED148FAC33ECD61D6C8FDF6F
-Log notice stdout

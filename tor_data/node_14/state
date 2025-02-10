@@ -1,0 +1,30 @@
+# Tor state file last generated on 2025-02-10 23:41:47 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+CircuitBuildTimeBin 295 1
+CircuitBuildTimeBin 305 1
+Dormant 0
+Guard in=default rsa_id=512219649B647564779A016C054ADCF1D08D48EF nickname=revolt sampled_on=2025-02-04T15:29:46 sampled_idx=0 sampled_by=0.4.6.10 listed=1 confirmed_on=2025-02-01T21:58:13 confirmed_idx=0 pb_circ_attempts=2.000000 pb_circ_successes=2.000000 pb_successful_circuits_closed=2.000000
+Guard in=default rsa_id=8470EAB36524CA781989E15F04CA6B8F52326554 nickname=BASEL sampled_on=2025-02-09T17:08:28 sampled_idx=1 sampled_by=0.4.6.10 listed=1 confirmed_on=2025-02-07T22:23:19 confirmed_idx=1
+Guard in=default rsa_id=ECA08EAF2D28CA54BD487EE464182F5895DE1688 nickname=vivaukraine sampled_on=2025-01-30T09:19:01 sampled_idx=2 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=AE4EB5F6F34B0E424AA024D102771D35F954D9F4 nickname=norderney sampled_on=2025-02-08T14:05:04 sampled_idx=3 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=65369D044C659CD299E35763914FFD0FC9AD4509 nickname=Charybdis5 sampled_on=2025-02-09T08:30:14 sampled_idx=4 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=F57C29781F6AEEF2718ED37DF792218BDFC996B3 nickname=theprivacyhaven sampled_on=2025-02-10T05:36:49 sampled_idx=5 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=2A117047D4FCFCAA5AF8D86A723C2C6B323DD750 nickname=VainoIvanov sampled_on=2025-02-09T05:38:40 sampled_idx=6 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=0C6629CD7AC1CD6C336A9006EB21C37E4C587E37 nickname=Arte sampled_on=2025-02-08T18:41:03 sampled_idx=7 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=BE443DE37BF731829D16D5EB5A16E3CE3A0B8569 nickname=bauruine sampled_on=2025-01-31T21:26:46 sampled_idx=8 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=16E5E5C19F1C0F3FF3326E4D281F647D58730A8B nickname=Lotus123 sampled_on=2025-01-30T15:45:21 sampled_idx=9 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=74E8B68042A2774884BBF67E43ABEC4D9E5DF59A nickname=StarAppsTrenton sampled_on=2025-02-06T02:09:13 sampled_idx=10 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=4DEF92140A80A1674307D68CC9D0561F8D803145 nickname=NTH18R4 sampled_on=2025-02-05T11:08:00 sampled_idx=11 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=E5C7A023A49948D9733A722BB6F7D1E9EA6E3F3E nickname=NTH100R1 sampled_on=2025-02-05T21:33:20 sampled_idx=12 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=F475E5987E44A2B7B143A2BEE3F8128EEFD7E5A3 nickname=0x1ea7deadbeef sampled_on=2025-02-02T11:28:10 sampled_idx=13 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=AC00AEBA1AE2A80CF4184C4362157BF91487B902 nickname=DanaScully sampled_on=2025-02-01T08:27:41 sampled_idx=14 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=090975875D1BBE53F6FF2ADCA8BA41C97DBB3E59 nickname=Mercury sampled_on=2025-01-31T12:54:32 sampled_idx=15 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=049091E0582A6439D7AC7E157D32AB9319B8B78C nickname=Mlrage sampled_on=2025-02-10T14:09:29 sampled_idx=16 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=ACEA5C60E4D37D9770246E81C19DB1C3F3CD1A8F nickname=systemli01 sampled_on=2025-02-10T04:02:06 sampled_idx=17 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=47B72187844C00AA5D524415E52E3BE81E63056B nickname=Aleff sampled_on=2025-02-05T08:08:12 sampled_idx=18 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=593A4431DA2E315883406AECE1D1188E02F23D8F nickname=klarheit sampled_on=2025-02-02T20:06:05 sampled_idx=19 sampled_by=0.4.6.10 listed=1
+LastWritten 2025-02-10 23:41:47
+TorVersion Tor 0.4.6.10
+TotalBuildTimes 2

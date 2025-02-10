@@ -1,0 +1,27 @@
+# Tor state file last generated on 2025-02-10 23:41:47 local time
+# Other times below are in UTC
+# You *do not* need to edit this file.
+
+Dormant 0
+Guard in=default rsa_id=5533C619F4056F2BAB925A5DF9785C992D45C5B1 nickname=creeperkirpich028 sampled_on=2025-02-03T09:24:00 sampled_idx=0 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=90333CD7DF2601BE73557753DEE9B4C8444B5E4A nickname=Zebala sampled_on=2025-02-07T01:07:42 sampled_idx=1 sampled_by=0.4.6.10 listed=1 confirmed_on=2025-02-04T02:19:43 confirmed_idx=0
+Guard in=default rsa_id=E41B228C32DA9C2B11AA2D6EAC18F3457162E66F nickname=PrebenBits sampled_on=2025-02-10T23:25:53 sampled_idx=2 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=9E0CD83CB64830E85C0D0009174108A4B2F20E04 nickname=RDPdotSH sampled_on=2025-02-06T12:20:55 sampled_idx=3 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=5C4FE03A9A6053319D70C5B6D8939D5F5419CE4A nickname=puff3rf1sh sampled_on=2025-01-31T17:14:37 sampled_idx=4 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=51407211A947E4D5B670848340EB6C17BD1F600D nickname=Unnamed sampled_on=2025-01-30T00:41:17 sampled_idx=5 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=4A3B874F0187F2CF0DA3C8F76063B070F9F7A14F nickname=tormachine sampled_on=2025-02-05T03:14:18 sampled_idx=6 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=A5DA94254E3D9FC110F4D903E87E0F540A5D682D nickname=Herr793 sampled_on=2025-01-30T17:24:33 sampled_idx=7 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=9837112DA1503CCAA3980CF49D9FAD6F4DEA4096 nickname=OrangeNode sampled_on=2025-02-04T07:57:59 sampled_idx=8 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=C2041A1CE9FDFDB13572D946A3055310FD48A595 nickname=DXV7520 sampled_on=2025-02-08T21:47:16 sampled_idx=9 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=7C781344302E21A6A954D7D794255CFD294D50EE nickname=666Sirocco sampled_on=2025-02-03T03:04:44 sampled_idx=10 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=028BEF4A81578286BAA1352C73E4609B9915C687 nickname=Kanellos sampled_on=2025-02-06T01:44:26 sampled_idx=11 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=FAF0A8829E39063669FA609B904E0FB8D5E1F23F nickname=Najdorf sampled_on=2025-02-09T22:59:47 sampled_idx=12 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=5378983BC20642C22BD3A4DB04445F759EBC09E3 nickname=NTH37R7 sampled_on=2025-02-10T15:12:38 sampled_idx=13 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=5790B62AD6C79A1092B30993A8F0F7F23A969FD6 nickname=StreamsofLifeSpa sampled_on=2025-02-02T15:28:14 sampled_idx=14 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=1FEB33FE6B8F1C39371566599B84D2834677F5CF nickname=prsv sampled_on=2025-02-08T03:32:23 sampled_idx=15 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=9472897A1E3C19E5FDCED0094D1F466149EBEDCF nickname=RDPdotSH sampled_on=2025-02-05T18:04:10 sampled_idx=16 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=5FDDE510E35091227C879A4EBEC9E14FD43711A5 nickname=sumer sampled_on=2025-01-31T07:53:11 sampled_idx=17 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=87FE1FF823E8E1359D2EE80B9B31B3B358BEE212 nickname=RightToInformation sampled_on=2025-02-06T10:09:35 sampled_idx=18 sampled_by=0.4.6.10 listed=1
+Guard in=default rsa_id=E57DFE222EA32536C6938BD188F81C5F224ED97D nickname=Unfixed7 sampled_on=2025-02-07T14:33:19 sampled_idx=19 sampled_by=0.4.6.10 listed=1
+LastWritten 2025-02-10 23:41:47
+TorVersion Tor 0.4.6.10

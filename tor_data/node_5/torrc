@@ -1,0 +1,6 @@
+
+SocksPort 9060
+ControlPort 9061
+DataDirectory ./tor_data/node_5
+HashedControlPassword 16:88325B5F6C78456960E41CF9B5AB76D631ED148FAC33ECD61D6C8FDF6F
+Log notice stdout
